@@ -1,13 +1,17 @@
-type Movie{
-    id: ID!,
-    title: String!,
-    year: Int!
-}
-
 type Query{
     info: String!,
     allMovies: [Movie!]!,
     findMovie(id:ID!): Movie
+}
+
+type Mutation{
+    addMovie(title:String!,year:Int!):Movie!
+}
+
+type Movie{
+    id: ID!,
+    title: String!,
+    year: Int!
 }
 
 type Person{

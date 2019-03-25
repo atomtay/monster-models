@@ -2,30 +2,39 @@ const { GraphQLServer } = require("graphql-yoga");
 
 let movies = [
 	{
-		id: `movie1`,
+		id: `movie0`,
 		title: "The Conjuring",
 		year: 2013
 	},
 	{
-		id: `movie2`,
+		id: `movie1`,
 		title: "Nightmare on Elm Street",
 		year: 1984
 	},
 	{
-		id: `movie3`,
+		id: `movie2`,
 		title: "The Hills Have Eyes",
 		year: 1977
 	}
 ];
 
+let movieID = movies.length;
 const resolvers = {
 	Query: {
 		info: () =>
 			`Some data about horror movies, but also just some normal folks.`,
 		allMovies: () => movies,
-		findMovie: (parent, args) => {
-			const film = movies.filter(film => film["id"] == args.id);
-			return film[0];
+		findMovie: (parent, args) => movies.filter(film => film["id"] == args.id)[0]
+	},
+	Mutation: {
+		addMovie: (parent, args) => {
+			const newMovie = {
+				id: `movie${movieID++}`,
+				title: args.title,
+				year: args.year
+			};
+			movies.push(newMovie);
+			return newMovie;
 		}
 	}
 };
