@@ -1,6 +1,6 @@
 type Query{
     info: String!,
-    allMovies: [Movie!]!,
+    allMovies: [Movie]!,
     findMovie(id:ID!): Movie
 }
 
