@@ -1,12 +1,13 @@
-type Query{
-    info: String!,
-    allMovies: [Movie!]!
-}
-
 type Movie{
     id: ID!,
     title: String!,
-    year: Int!,
+    year: Int!
+}
+
+type Query{
+    info: String!,
+    allMovies: [Movie!]!,
+    findMovie(id:ID!): Movie
 }
 
 type Person{
