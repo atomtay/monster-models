@@ -6,16 +6,12 @@ type Query{
 
 type Mutation{
     addMovie(title:String!,year:Int!):Movie!,
-    updateMovie(id:ID!,title:String,year:Int):Movie
+    updateMovie(id:ID!,title:String,year:Int):Movie,
+    deleteMovie(id:ID!):Movie
 }
 
 type Movie{
     id: ID!,
     title: String!,
     year: Int!
-}
-
-type Person{
-    id: ID!,
-    name: String!,
 }

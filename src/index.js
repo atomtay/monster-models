@@ -21,8 +21,7 @@ let movies = [
 let movieID = movies.length;
 const resolvers = {
 	Query: {
-		info: () =>
-			`Some data about horror movies, but also just some normal folks.`,
+		info: () => `Some data about horror movies.`,
 		allMovies: () => movies,
 		findMovie: (parent, args) => movies.filter(film => film["id"] == args.id)[0]
 	},
@@ -41,6 +40,11 @@ const resolvers = {
 			if (args.title) selectedMovie.title = args.title;
 			if (args.year) selectedMovie.year = args.year;
 			return selectedMovie;
+		},
+		deleteMovie: (parent, args) => {
+			const removedMovie = movies.filter(film => film["id"] == args.id)[0];
+			movies = movies.filter(film => film["id"] != args.id);
+			return removedMovie;
 		}
 	}
 };
