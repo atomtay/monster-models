@@ -5,7 +5,8 @@ type Query{
 }
 
 type Mutation{
-    addMovie(title:String!,year:Int!):Movie!
+    addMovie(title:String!,year:Int!):Movie!,
+    updateMovie(id:ID!,title:String,year:Int):Movie
 }
 
 type Movie{

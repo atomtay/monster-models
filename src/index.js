@@ -35,6 +35,12 @@ const resolvers = {
 			};
 			movies.push(newMovie);
 			return newMovie;
+		},
+		updateMovie: (parent, args) => {
+			const selectedMovie = movies.filter(film => film["id"] == args.id)[0];
+			if (args.title) selectedMovie.title = args.title;
+			if (args.year) selectedMovie.year = args.year;
+			return selectedMovie;
 		}
 	}
 };
