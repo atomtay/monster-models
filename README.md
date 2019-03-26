@@ -1,21 +1,3 @@
-The Achillies heel:
+# Monster Mondels
 
-```
-findMovie: (parent, args) => {
-			const film = movies.filter(film => film["id"] == args.id);
-			return film[0];
-		}
-```
-
-Server is running on http://localhost:4000
-console.log(movies) =
-[ { id: 'movie1', title: 'The Conjuring', year: 2013 },
-{ id: 'movie2', title: 'Nightmare on Elm Street', year: 1984 },
-{ id: 'movie3', title: 'The Hills Have Eyes', year: 1977 } ]
-
-console.log(film) (the filtered one)==
-[ { id: 'movie2', title: 'Nightmare on Elm Street', year: 1984 } ]
-
-console.log(film[0]) = { id: 'movie2', title: 'Nightmare on Elm Street', year: 1984 }
-
-Arrays and objects, oh my!
+An exercise on one-model CRUD with GraphQL and NodeJS. You can also go through the repo with [the associated dev.to tutorial](https://dev.to/annabellettaylor/we-can-rest-when-were-dead-graphql-express-and-monster-movies-3m11).
